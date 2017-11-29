@@ -9,7 +9,7 @@ class DestinationTile extends Component {
   render(){
     return (
       <Card centered={true}>
-        <Image src='https://ih0.redbubble.net/image.323912751.6034/ap%2C190x210%2C16x12%2C1%2Cf8f8f8%2Ct-pad%2C210x230%2Cf8f8f8.lite-1.jpg' />
+        <Image src={this.props.destination.photo_url} height={175}/>
         <Card.Content>
           <Card.Header>{this.props.destination.name}</Card.Header>
           <Card.Meta>Joined in 2016</Card.Meta>

@@ -1,14 +1,15 @@
 import React from 'react';
-import { Container, Card } from 'semantic-ui-react'
+import { Container, Card, Header } from 'semantic-ui-react'
 import DestinationTile from './destinationTile'
 
-const DestinationsContainer = ({destinations}) => {
+const DestinationsContainer = ({region, destinations}) => {
     let destinationTiles = destinations.map(destination => <DestinationTile destination={destination}/>)
     return (
-      <Container>
-        <Card.Group>
-          {destinationTiles}
-        </Card.Group>
+      <Container className="margin-top">
+        <Header as='h2' textAlign='center'>{region}</Header>
+          <Card.Group>
+            {destinationTiles}
+          </Card.Group>
       </Container>
     )
 }
