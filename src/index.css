@@ -1,5 +1,38 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+  min-height: 100%;
+  margin-bottom: 5vh;
+}
+
+#header-container {
+   background-image: url('./images/header.jpeg');
+   background-size: cover;
+   background-position: center;
+   height: 50vh;
+   padding-top: 10vh;
+}
+
+#title-text {
+  font-size: 6em;
+}
+
+#subtitle-text {
+  font-size: 2em;
+}
+
+#footer-container {
+  background-color: black;
+}
+
+.white-text {
+  color: white;
+}
+
+.margin-top {
+  margin-top: 5vh;
 }
