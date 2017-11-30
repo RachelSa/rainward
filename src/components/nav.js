@@ -7,7 +7,7 @@ class Nav extends Component {
   render(){
     return (
         <div id="header-container">
-          <Grid divided='vertically'>
+          <Grid>
              <Grid.Row columns={2}>
                <Grid.Column textAlign='center' computer={8} tablet={12} mobile={12}>
                 <span id="title-text" className="white-text">Rainward</span>
