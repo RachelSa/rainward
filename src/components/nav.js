@@ -12,7 +12,7 @@ class Nav extends Component {
                <Grid.Column textAlign='center' computer={8} tablet={12} mobile={12}>
                 <span id="title-text" className="white-text">Rainward</span>
                </Grid.Column>
-               <Grid.Column computer={8} tablet={0} mobile={0}>
+               <Grid.Column computer={8} tablet={16} mobile={16}>
                </Grid.Column>
              </Grid.Row>
 

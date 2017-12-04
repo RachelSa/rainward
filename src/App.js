@@ -9,62 +9,47 @@ class App extends Component {
     super()
     this.state = {
       regions: {
-        "US Northeast": [{
-    "id": 79,
-    "api_id": 4930956,
-    "rating": 16,
-    "name": "Boston",
-    "country": "US",
-    "lat": 42.358429,
-    "lon": -71.059769,
-    "photo_url": "https://c1.staticflickr.com/3/2279/2215012629_71f107ce6a.jpg"
-  },
-  {
-    "id": 78,
-    "api_id": 4990729,
-    "rating": 12,
-    "name": "Detroit",
-    "country": "US",
-    "lat": 42.331429,
-    "lon": -83.045753,
-    "photo_url": "https://c1.staticflickr.com/7/6101/6347529989_fba4717061_q.jpg"
-  },
-  {
-    "id": 77,
-    "api_id": 4560349,
-    "rating": 9,
-    "name": "Philadelphia",
-    "country": "US",
-    "lat": 39.952339,
-    "lon": -75.163788,
-    "photo_url": "https://c1.staticflickr.com/7/6034/5886078117_81736521e3.jpg"
-  }]
+        "US Northeast": [],
+        "US Northwest": [],
+        "CA Northeast": [],
+        "CA Northwest": []
       }
     }
 
   }
 
-  // componentDidMount() {
-  //   fetch("https://floating-escarpment-37906.herokuapp.com/suggestions")
-  //   .then(data => data.json())
-  //   .then((json) => {
-  //     this.setState({
-  //       regions: {
-  //         "US Northeast": json
-  //       }
-  //     })
-  //   })
-  // }
+  componentDidMount() {
+    Object.keys(this.state.regions)
+    .map(region => this.fetchRegionalSuggestions(region))
+  }
+
+  fetchRegionalSuggestions = (region) => {
+    const region_url = region.toLowerCase().replace(" ", "-")
+    fetch(`https://floating-escarpment-37906.herokuapp.com/suggestions/${region_url}`)
+    .then(data => data.json())
+    .then((json) => {
+      this.setState({
+        regions: {
+          ...this.state.regions,
+          [region]: json
+        }
+      })
+    })
+  }
+
 
   render() {
     return (
-      <body>
+      <div>
         <div id="wrapper">
           <Nav/>
           <DestinationsContainer region="US Northeast" destinations={this.state.regions["US Northeast"]}/>
+          <DestinationsContainer region="US Northwest" destinations={this.state.regions["US Northwest"]}/>
+          <DestinationsContainer region="CA Northeast" destinations={this.state.regions["CA Northeast"]}/>
+          <DestinationsContainer region="CA Northwest" destinations={this.state.regions["CA Northwest"]}/>
           </div>
         <Footer/>
-      </body>
+      </div>
     );
   }
 }

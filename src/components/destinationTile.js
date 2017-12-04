@@ -2,26 +2,26 @@ import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react'
 
 class DestinationTile extends Component {
-  constructor(){
-    super()
-  }
 
   woolSockOMeter = () => {
     let rating = this.props.destination.rating
-     return rating > 30 ? "three wool socks" : rating < 20 ? "one wool sock" : "two wool socks"
+    return rating > 150 ? "three wool socks" : rating < 100 ? "one wool sock" : "two wool socks"
   }
 
   render(){
+    const destination = this.props.destination
     return (
       <Card centered={true}>
-        <Image src={this.props.destination.photo_url} height={175}/>
+        <Image src={destination.photo_url} height={175}/>
+        <Card.Meta textAlign="center">photo by {destination.photo_cred}</Card.Meta>
         <Card.Content>
-          <Card.Header>{this.props.destination.name}</Card.Header>
-          <Card.Meta>{this.props.destination.country}</Card.Meta>
-          <Card.Description>dreariness rating</Card.Description>
-          {this.woolSockOMeter()}
+          <Card.Header>{destination.name}</Card.Header>
+          <Card.Meta>{destination.country}</Card.Meta>
+          <Card.Description>currently {destination.current_temp.toFixed()} ℉ | {destination.current_description}</Card.Description>
         </Card.Content>
-
+        <Card.Content extra>
+          dreariness rating: {this.woolSockOMeter()}
+        </Card.Content>
       </Card>
     )
   }

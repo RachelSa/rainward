@@ -3,7 +3,7 @@ import { Container, Card, Header } from 'semantic-ui-react'
 import DestinationTile from './destinationTile'
 
 const DestinationsContainer = ({region, destinations}) => {
-    let destinationTiles = destinations.map(destination => <DestinationTile destination={destination}/>)
+    let destinationTiles = destinations.map(destination => <DestinationTile key={destination.id} destination={destination}/>)
     return (
       <Container className="margin-top">
         <Header as='h2' textAlign='center'>{region}</Header>
