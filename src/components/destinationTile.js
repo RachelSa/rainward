@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react'
+import DestinationLoader from './loader.js'
+
 
 class DestinationTile extends Component {
 
@@ -12,6 +14,7 @@ class DestinationTile extends Component {
     const destination = this.props.destination
     return (
       <Card centered={true}>
+
         <Image src={destination.photo_url} height={175}/>
         <Card.Meta textAlign="center">photo by {destination.photo_cred}</Card.Meta>
         <Card.Content>
@@ -22,10 +25,10 @@ class DestinationTile extends Component {
         <Card.Content extra>
           dreariness rating: {this.woolSockOMeter()}
         </Card.Content>
+
       </Card>
     )
   }
-
 }
 
 export default DestinationTile
