@@ -10,28 +10,30 @@ class App extends Component {
     super()
     this.state = {
       regions: [
-        {key: "us-northeast", value: "usne", text:"US - Northeast"},
+        {value: "us-northeast", text:"US - Northeast"},
         {value: "us-northwest", text:"US - Northwest"},
         {value: "ca-northeast", text:"Canada - East"},
         {value: "ca-northwest", text:"Canada - West"}
       ],
-      selectedRegion: "",
-      selectedRegionData: ""
+      selectedRegion: "us-northeast",
+      selectedRegionData: "",
+      selectedRegionDisplay: "US - Northeast"
     }
 
   }
 
   handleChange = (event, { value }) => {
     this.setState({
-      selectedRegion: value
+      selectedRegion: value,
+      selectedRegionDisplay: event.target.innerText
     })
     this.fetchRegionalSuggestions(value)
   }
 
-  // componentDidMount() {
-  //   Object.keys(this.state.regions)
-  //   .map(region => this.fetchRegionalSuggestions(region))
-  // }
+  componentDidMount() {
+    let region = this.state.selectedRegion
+    this.fetchRegionalSuggestions(region)
+  }
 
   fetchRegionalSuggestions = (region) => {
     fetch(`https://floating-escarpment-37906.herokuapp.com/suggestions/${region}`)
@@ -45,13 +47,12 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.selectedRegionData)
     return (
       <div>
         <div id="wrapper">
           <Nav/>
           <RegionSelectContainer options={this.state.regions} handleChange={this.handleChange} />
-          { this.state.selectedRegionData !== "" ? <DestinationsContainer region={this.state.selectedRegion} destinations={this.state.selectedRegionData}/> : null }
+          <DestinationsContainer region={this.state.selectedRegionDisplay} destinations={this.state.selectedRegionData}/> 
           </div>
         <Footer/>
       </div>
@@ -59,9 +60,6 @@ class App extends Component {
   }
 }
 
-// {this.state.regions["US Northeast"] !== [] ? <DestinationsContainer region="US Northeast" destinations={this.state.regions["US Northeast"]}/> : <Loader/>}
-// {this.state.regions["US Northwest"] !== [] ? <DestinationsContainer region="US Northwest" destinations={this.state.regions["US Northwest"]}/> : <Loader/>}
-// {this.state.regions["CA Northeast"] !== [] ? <DestinationsContainer region="CA Northeast" destinations={this.state.regions["CA Northeast"]}/> : <Loader/>}
-// {this.state.regions["CA Northwest"] !== [] ? <DestinationsContainer region="CA Northwest" destinations={this.state.regions["CA Northwest"]}/> : <Loader/>}
+
 
 export default App;
