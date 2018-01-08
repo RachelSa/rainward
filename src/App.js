@@ -52,7 +52,7 @@ class App extends Component {
         <div id="wrapper">
           <Nav/>
             <Route
-            exact path="/rainward"
+            exact path="/"
             component={() => {
               return <SelectionDisplayContainer
                 options={this.state.regions}
@@ -62,7 +62,7 @@ class App extends Component {
                 destinations={this.state.selectedRegionData}/>}}
               />
             <Route
-            exact path="/rainward/about"
+            exact path="/about"
             component={About}
             />
           </div>
