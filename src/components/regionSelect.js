@@ -6,9 +6,9 @@ class RegionSelect extends Component {
   render() {
 
     return (
-      <Button.Group color='teal'>
+      <Button.Group color='blue'>
         <Dropdown
-        button color='teal'
+        button
         defaultValue={this.props.options[0].value}
         options={this.props.options}
         onChange={this.props.handleChange}/>

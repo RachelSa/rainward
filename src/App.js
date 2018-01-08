@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import SelectionDisplayContainer from './components/selectionDisplayContainer'
 import Nav from './components/nav'
-import RegionSelectContainer from './components/regionSelectContainer'
-import DestinationsContainer from './components/destinationsContainer'
 import Footer from './components/footer'
 import Loader from './components/loader'
+import About from './components/about'
 
 class App extends Component {
   constructor(){
@@ -51,8 +52,19 @@ class App extends Component {
       <div>
         <div id="wrapper">
           <Nav/>
-          <RegionSelectContainer options={this.state.regions} handleChange={this.handleChange} />
-          <DestinationsContainer region={this.state.selectedRegionDisplay} destinations={this.state.selectedRegionData}/> 
+            <Route
+            exact path="/"
+            component={() => {
+              return <SelectionDisplayContainer
+                options={this.state.regions}
+                handleChange={this.handleChange}
+                region={this.state.selectedRegionDisplay}
+                destinations={this.state.selectedRegionData}/>}}
+              />
+            <Route
+            exact path="/about"
+            component={About}
+            />
           </div>
         <Footer/>
       </div>
