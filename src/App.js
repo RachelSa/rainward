@@ -51,20 +51,22 @@ class App extends Component {
       <div>
         <div id="wrapper">
           <Nav/>
-            <Route
-            exact path="/"
-            component={() => {
-              return <SelectionDisplayContainer
-                options={this.state.regions}
-                handleChange={this.handleChange}
-                region={this.state.selectedRegionDisplay}
-                dropdownDisplay={this.state.selectedRegion}
-                destinations={this.state.selectedRegionData}/>}}
+            <Router>
+              <Route
+              exact path={`${process.env.PUBLIC_URL}/`}
+              component={() => {
+                return <SelectionDisplayContainer
+                  options={this.state.regions}
+                  handleChange={this.handleChange}
+                  region={this.state.selectedRegionDisplay}
+                  dropdownDisplay={this.state.selectedRegion}
+                  destinations={this.state.selectedRegionData}/>}}
+                />
+              <Route
+              exact path={`${process.env.PUBLIC_URL}/about`}
+              component={About}
               />
-            <Route
-            exact path="/about"
-            component={About}
-            />
+            </Router>
           </div>
         <Footer/>
       </div>
