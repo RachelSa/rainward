@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, Dropdown } from 'semantic-ui-react'
 
 const RegionSelect = ({options, handleChange, dropdownDisplay}) => {

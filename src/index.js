@@ -6,7 +6,7 @@ import App from './App';
 import 'semantic-ui-css/semantic.min.css';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<BrowserRouter>
+ReactDOM.render(<BrowserRouter basename={process.env.PUBLIC_URL}>
     <App/>
   </BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();
