@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-
 import '../index.css'
 
-class Nav extends Component {
-  render(){
+const Nav = () => {
     return (
         <div id="header-container">
           <Grid>
@@ -24,18 +22,15 @@ class Nav extends Component {
                </Grid.Column>
              </Grid.Row>
              <Grid.Row columns={2}>
-               <Grid.Column textAlign='center' computer={8} tablet={6} mobile={2}>
+               <Grid.Column textAlign='center' computer={6} tablet={6} mobile={6}>
                <Link to="/about" className="white-text">about</Link>
                </Grid.Column>
-               <Grid.Column computer={8} tablet={10} mobile={14}>
-
+               <Grid.Column computer={10} tablet={10} mobile={10}>
                </Grid.Column>
              </Grid.Row>
           </Grid>
-
         </div>
     )
-  }
 }
 
 export default Nav

@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import RegionSelectContainer from './regionSelectContainer'
 import DestinationsContainer from './destinationsContainer'
 
-class SelectionDisplayContainer extends Component {
-  render() {
+const SelectionDisplayContainer = ({options, handleChange, region, dropdownDisplay, destinations}) => {
     return (
       <div>
-        <RegionSelectContainer options={this.props.options} dropdownDisplay={this.props.dropdownDisplay} handleChange={this.props.handleChange} />
-        <DestinationsContainer region={this.props.region} destinations={this.props.destinations}/>
+        <RegionSelectContainer options={options} dropdownDisplay={dropdownDisplay} handleChange={handleChange} />
+        <DestinationsContainer region={region} destinations={destinations}/>
       </div>
     )
-  }
 }
 
 export default SelectionDisplayContainer

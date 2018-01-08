@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Image, Label } from 'semantic-ui-react'
 
-
-
 class DestinationTile extends Component {
 
   woolSockOMeter = () => {
