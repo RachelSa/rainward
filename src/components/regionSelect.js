@@ -4,12 +4,11 @@ import { Button, Dropdown } from 'semantic-ui-react'
 class RegionSelect extends Component {
 
   render() {
-
     return (
       <Button.Group color='blue'>
         <Dropdown
         button
-        defaultValue={this.props.options[0].value}
+        defaultValue={this.props.dropdownDisplay}
         options={this.props.options}
         onChange={this.props.handleChange}/>
       </Button.Group>

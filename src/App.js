@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import SelectionDisplayContainer from './components/selectionDisplayContainer'
 import Nav from './components/nav'
 import Footer from './components/footer'
-import Loader from './components/loader'
 import About from './components/about'
 
 class App extends Component {
@@ -59,6 +58,7 @@ class App extends Component {
                 options={this.state.regions}
                 handleChange={this.handleChange}
                 region={this.state.selectedRegionDisplay}
+                dropdownDisplay={this.state.selectedRegion}
                 destinations={this.state.selectedRegionData}/>}}
               />
             <Route

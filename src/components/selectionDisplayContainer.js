@@ -6,7 +6,7 @@ class SelectionDisplayContainer extends Component {
   render() {
     return (
       <div>
-        <RegionSelectContainer options={this.props.options} handleChange={this.props.handleChange} />
+        <RegionSelectContainer options={this.props.options} dropdownDisplay={this.props.dropdownDisplay} handleChange={this.props.handleChange} />
         <DestinationsContainer region={this.props.region} destinations={this.props.destinations}/>
       </div>
     )
