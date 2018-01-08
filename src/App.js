@@ -1,38 +1,47 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import SelectionDisplayContainer from './components/selectionDisplayContainer'
 import Nav from './components/nav'
-import RegionSelectContainer from './components/regionSelectContainer'
-import DestinationsContainer from './components/destinationsContainer'
 import Footer from './components/footer'
+import Loader from './components/loader'
+import About from './components/about'
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-      regions: {
-        "US Northeast": [],
-        "US Northwest": [],
-        "CA Northeast": [],
-        "CA Northwest": []
-      }
+      regions: [
+        {value: "us-northeast", text:"US - Northeast"},
+        {value: "us-northwest", text:"US - Northwest"},
+        {value: "ca-northeast", text:"Canada - East"},
+        {value: "ca-northwest", text:"Canada - West"}
+      ],
+      selectedRegion: "us-northeast",
+      selectedRegionData: "",
+      selectedRegionDisplay: "US - Northeast"
     }
 
   }
 
+  handleChange = (event, { value }) => {
+    this.setState({
+      selectedRegion: value,
+      selectedRegionDisplay: event.target.innerText
+    })
+    this.fetchRegionalSuggestions(value)
+  }
+
   componentDidMount() {
-    Object.keys(this.state.regions)
-    .map(region => this.fetchRegionalSuggestions(region))
+    let region = this.state.selectedRegion
+    this.fetchRegionalSuggestions(region)
   }
 
   fetchRegionalSuggestions = (region) => {
-    const region_url = region.toLowerCase().replace(" ", "-")
-    fetch(`https://floating-escarpment-37906.herokuapp.com/suggestions/${region_url}`)
+    fetch(`https://floating-escarpment-37906.herokuapp.com/suggestions/${region}`)
     .then(data => data.json())
     .then((json) => {
       this.setState({
-        regions: {
-          ...this.state.regions,
-          [region]: json
-        }
+        selectedRegionData: json
       })
     })
   }
@@ -43,15 +52,26 @@ class App extends Component {
       <div>
         <div id="wrapper">
           <Nav/>
-          <DestinationsContainer region="US Northeast" destinations={this.state.regions["US Northeast"]}/>
-          <DestinationsContainer region="US Northwest" destinations={this.state.regions["US Northwest"]}/>
-          <DestinationsContainer region="CA Northeast" destinations={this.state.regions["CA Northeast"]}/>
-          <DestinationsContainer region="CA Northwest" destinations={this.state.regions["CA Northwest"]}/>
+            <Route
+            exact path="/"
+            component={() => {
+              return <SelectionDisplayContainer
+                options={this.state.regions}
+                handleChange={this.handleChange}
+                region={this.state.selectedRegionDisplay}
+                destinations={this.state.selectedRegionData}/>}}
+              />
+            <Route
+            exact path="/about"
+            component={About}
+            />
           </div>
         <Footer/>
       </div>
     );
   }
 }
+
+
 
 export default App;

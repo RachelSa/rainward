@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Label } from 'semantic-ui-react'
+
+
 
 class DestinationTile extends Component {
 
@@ -12,11 +14,14 @@ class DestinationTile extends Component {
     const destination = this.props.destination
     return (
       <Card centered={true}>
-        <Image src={destination.photo_url} height={175}/>
+        <Image
+        className='card-height'
+        src={destination.photo_url}
+        />
         <Card.Meta textAlign="center">photo by {destination.photo_cred}</Card.Meta>
         <Card.Content>
-          <Card.Header>{destination.name}</Card.Header>
-          <Card.Meta>{destination.country}</Card.Meta>
+        <Label as='a' color='black' ribbon>{this.props.ranking}</Label>
+          <span className='title-text'>{destination.name}</span>
           <Card.Description>currently {destination.current_temp.toFixed()} ℉ | {destination.current_description}</Card.Description>
         </Card.Content>
         <Card.Content extra>
@@ -25,7 +30,6 @@ class DestinationTile extends Component {
       </Card>
     )
   }
-
 }
 
 export default DestinationTile
