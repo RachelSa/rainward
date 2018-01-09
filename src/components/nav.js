@@ -23,7 +23,7 @@ const Nav = () => {
              </Grid.Row>
              <Grid.Row columns={2}>
                <Grid.Column textAlign='center' className="white-text" computer={6} tablet={6} mobile={6}>
-               <Link to="/" className="white-text">home</Link> | <Link to="/about"  className="white-text">about</Link>
+               <Link to="/" className="white-text black-background">home</Link> | <Link to="/about"  className="white-text black-background">about</Link>
                </Grid.Column>
                <Grid.Column computer={10} tablet={10} mobile={10}>
                </Grid.Column>
