@@ -9,7 +9,7 @@ const Nav = () => {
           <Grid>
              <Grid.Row columns={2}>
                <Grid.Column textAlign='center' computer={8} tablet={12} mobile={12}>
-                 <Link to="/" id="title-text" className="white-text">Rainward</Link>
+                 <span id="title-text" className="white-text">Rainward</span>
                </Grid.Column>
                <Grid.Column computer={8} tablet={16} mobile={16}>
                </Grid.Column>
@@ -22,8 +22,8 @@ const Nav = () => {
                </Grid.Column>
              </Grid.Row>
              <Grid.Row columns={2}>
-               <Grid.Column textAlign='center' computer={6} tablet={6} mobile={6}>
-               <Link to="/about" className="white-text">about</Link>
+               <Grid.Column textAlign='center' className="white-text" computer={6} tablet={6} mobile={6}>
+               <Link to="/" className="white-text">home</Link> | <Link to="/about"  className="white-text">about</Link>
                </Grid.Column>
                <Grid.Column computer={10} tablet={10} mobile={10}>
                </Grid.Column>
