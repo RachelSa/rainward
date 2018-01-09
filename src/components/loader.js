@@ -1,12 +1,14 @@
 import React from 'react'
-import { Dimmer, Loader, Segment } from 'semantic-ui-react'
+import { Card, Loader } from 'semantic-ui-react'
 
 const DestinationLoader = () => (
-  <Segment>
-    <Dimmer active>
-      <Loader />
-    </Dimmer>
-  </Segment>
+    <Card centered={true} className="card-height">
+      <Card.Content>
+        <Loader active size={"medium"}/>
+      </Card.Content>
+    </Card>
+
+
 )
 
 export default DestinationLoader
