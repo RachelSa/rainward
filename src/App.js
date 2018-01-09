@@ -53,7 +53,7 @@ class App extends Component {
           <Nav/>
             <Router>
               <Route
-              exact path={`${process.env.PUBLIC_URL}/`}
+              exact path="/"
               component={() => {
                 return <SelectionDisplayContainer
                   options={this.state.regions}
@@ -63,7 +63,7 @@ class App extends Component {
                   destinations={this.state.selectedRegionData}/>}}
                 />
               <Route
-              exact path={`${process.env.PUBLIC_URL}/about`}
+              exact path="/about"
               component={About}
               />
             </Router>
