@@ -51,7 +51,6 @@ class App extends Component {
       <div>
         <div id="wrapper">
           <Nav/>
-            <Router>
               <Route
               exact path="/"
               component={() => {
@@ -66,7 +65,6 @@ class App extends Component {
               exact path="/about"
               component={About}
               />
-            </Router>
           </div>
         <Footer/>
       </div>
