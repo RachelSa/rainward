@@ -13,6 +13,7 @@ body {
    background-image: url('./images/header.jpeg');
    background-size: cover;
    background-position: center;
+   min-height: 235px;
    height: 50vh;
    padding-top: 10vh;
    margin-bottom: 1vh;
