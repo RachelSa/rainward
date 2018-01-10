@@ -26,6 +26,14 @@ body {
   font-size: 1.95em;
 }
 
+#mobile-title {
+  font-size: 4em;
+}
+
+#mobile-subtitle {
+  font-size: 1.1em;
+}
+
 #footer-container {
   background-color: black;
 }
