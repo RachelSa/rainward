@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div class="paragraph-text">
+    <div class="paragraph-text margin-10">
       <p>Welcome to Rainward, the web app for finding dreary and drizzly travel destinations, based on their five-day forecasts.</p>
 
       <p>Rainward ranks locations based on their forecasted temperature, precipitation, wind, and cloudiness, using the <a href="https://openweathermap.org/">OpenWeatherMap</a> API.</p>
