@@ -52,6 +52,10 @@ body {
   margin-top: 5vh;
 }
 
+.margin-bottom {
+ margin-bottom: 2vh;
+}
+
 .card-height {
   height: 170px;
 }
@@ -60,8 +64,11 @@ body {
   font-size: 1.75em;
 }
 
-.paragraph-text {
+.margin-10 {
   margin: 10%;
+}
+
+.paragraph-text {
   font-size: 1.2em;
   color: rgb(152,152,152)
 }

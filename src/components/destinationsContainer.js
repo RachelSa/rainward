@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Card, Header } from 'semantic-ui-react'
 import DestinationTile from './destinationTile'
 import DestinationLoader from './loader.js'
+import ForecastChartModal from './forecastChartModal.js'
 
 const DestinationsContainer = ({region, destinations}) => {
     let loaders = [<DestinationLoader key="1" />, <DestinationLoader key="2" />, <DestinationLoader key="3" />]
@@ -9,6 +10,9 @@ const DestinationsContainer = ({region, destinations}) => {
     return (
       <Container className="margin-top">
         <Header as='h2' textAlign='center'>{region}</Header>
+        <Container textAlign='center' className="margin-bottom">
+          <ForecastChartModal destinations={destinations}/>
+        </Container>
           <Card.Group>
             {destinationTiles}
           </Card.Group>
