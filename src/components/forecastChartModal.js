@@ -1,6 +1,6 @@
 import React from 'react'
 import { Bar } from 'react-chartjs'
-import { Button, Header, Modal } from 'semantic-ui-react'
+import { Button, Modal } from 'semantic-ui-react'
 
 const ForecastChartModal = ({destinations}) => {
   if (destinations !== "") {
@@ -12,7 +12,7 @@ const ForecastChartModal = ({destinations}) => {
           <p class="paragraph-text">Each destination can gain up to thirty points in each of the following categories, based on forecasts for the next four days:</p>
           <ul class="paragraph-text">
             <li>precipitation: mist, drizzle, rain, thunderstorm, or snow </li>
-            <li>cool temps: below 50 Farenheit</li>
+            <li>cool temps: below 50ºF</li>
             <li>clouds: coverage over 50%</li>
             <li>wind: speeds above 13 mph</li>
           </ul>
