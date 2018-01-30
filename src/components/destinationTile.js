@@ -5,7 +5,7 @@ class DestinationTile extends Component {
 
   woolSockOMeter = () => {
     let rating = this.props.destination.rating
-    return rating > 89 ? "three wool socks" : rating < 40 ? "one wool sock" : "two wool socks"
+    return rating > 80 ? "three wool socks" : rating < 35 ? "one wool sock" : "two wool socks"
   }
 
   render(){

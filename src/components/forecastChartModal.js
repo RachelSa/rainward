@@ -5,20 +5,20 @@ import { Button, Modal } from 'semantic-ui-react'
 const ForecastChartModal = ({destinations}) => {
   if (destinations !== "") {
     return (
-      <Modal trigger={<Button basic size='tiny'>compare forecasts</Button>}>
+      <Modal size={'small'} trigger={<Button basic size='tiny'>compare forecasts</Button>}>
         <Modal.Header>Find the Dreariness that Suits You Best</Modal.Header>
         <Modal.Content scrolling>
         <Modal.Description>
-          <p class="paragraph-text">Each destination can gain up to thirty points in each of the following categories, based on forecasts for the next four days:</p>
-          <ul class="paragraph-text">
+          <p className="paragraph-text">Destinations can gain up to thirty points each of the following forecast categories:</p>
+          <ul className="paragraph-text">
             <li>precipitation: mist, drizzle, rain, thunderstorm, or snow </li>
             <li>cool temps: below 50ºF</li>
             <li>clouds: coverage over 50%</li>
             <li>wind: speeds above 13 mph</li>
           </ul>
         </Modal.Description>
-          <div only='computer'>
-            <Bar data={displayData(destinations)} width="800" height="300"/>
+          <div>
+            <Bar data={displayData(destinations)} width="625" height="250"/>
           </div>
         </Modal.Content>
       </Modal>
