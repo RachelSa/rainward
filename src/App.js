@@ -37,7 +37,7 @@ class App extends Component {
   }
 
   fetchRegionalSuggestions = (region) => {
-    this.setState({ loading: true })
+    setTimeout(() => {this.setState({ loading: true })
       fetch(`https://floating-escarpment-37906.herokuapp.com/suggestions/${region}`)
       .then(data => data.json())
       .then((json) => {
@@ -45,7 +45,8 @@ class App extends Component {
           selectedRegionData: json,
           loading: false
         })
-      })
+      })},15000)
+
   }
 
 

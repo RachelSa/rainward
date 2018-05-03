@@ -5,23 +5,31 @@ class FunLoader extends Component {
 
   constructor(){
     super()
-    const messages = ["sifting snowflakes", "counting rain drops...", "inspecting fog...", "checking wind sock..."]
+    this.messages = [
+      "sifting snowflakes...",
+      "counting rain drops...",
+      "inspecting fog...",
+      "checking wind sock...",
+      "punching numbers...",
+      "drawing charts...",
+      "refilling coffee...",
+      "tabulating results..."
+    ]
     this.state = {
-      currentMessage: messages[0]
+      currentMessage: this.messages[0]
     }
-    this.changeMessage()
-  }
-
-  changeMessage(){
     let counter = 1
-    let funMessage = setInterval(() => {
-      if (counter < 4){
+    this.funMessage = setInterval(() => {
+      if (counter < 7){
         counter++
-        this.setState({currentMessage: messages[counter]})
-      } else {
-        clearInterval(funMessage)
+        this.setState({currentMessage: this.messages[counter]})
       }
     }, 2000)
+  }
+
+
+  componentWillUnmount(){
+    clearInterval(this.funMessage)
   }
 
   render(){

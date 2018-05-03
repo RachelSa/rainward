@@ -7,8 +7,7 @@ import ForecastChartModal from './forecastChartModal.js'
 
 const DestinationsContainer = ({region, destinations, opacity}) => {
     let loaders = [<DestinationLoader key="1" />, <FunLoader key="2" />, <DestinationLoader key="3" />]
-    let destinationTiles = loaders
-    //destinations !== "" ? destinations.map((destination, index) => <DestinationTile key={destination.id} destination={destination} ranking={index + 1}/>) : loaders
+    let destinationTiles = destinations !== "" ? destinations.map((destination, index) => <DestinationTile key={destination.id} destination={destination} ranking={index + 1}/>) : loaders
     return (
       <Container className="margin-top" style={{"opacity": opacity}}>
         <Header as='h2' textAlign='center'>{region}</Header>
