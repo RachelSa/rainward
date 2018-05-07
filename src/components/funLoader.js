@@ -1,28 +1,25 @@
 import React, { Component } from 'react'
 import { Card, Loader } from 'semantic-ui-react'
+import loaderData from '../loaderData.js'
 
 class FunLoader extends Component {
 
   constructor(){
     super()
-    this.messages = [
-      "sifting snowflakes...",
-      "counting rain drops...",
-      "inspecting fog...",
-      "checking wind sock...",
-      "punching numbers...",
-      "drawing charts...",
-      "refilling coffee...",
-      "tabulating results..."
-    ]
     this.state = {
-      currentMessage: this.messages[0]
+      currentMessage: ""
     }
-    let counter = 1
+    let counter = 0
     this.funMessage = setInterval(() => {
       if (counter < 7){
+        let displayItem = loaderData[this.props.display][counter]
+        if (displayItem) {
+          this.setState({currentMessage: displayItem})
+        } else {
+          counter = 0
+          this.setState({currentMessage: loaderData[this.props.display][counter]})
+        }
         counter++
-        this.setState({currentMessage: this.messages[counter]})
       }
     }, 2000)
   }
@@ -38,7 +35,7 @@ class FunLoader extends Component {
         <Card.Content>
           <Loader active size={"medium"}>{this.state.currentMessage}</Loader>
         </Card.Content>
-    </Card>
+      </Card>
     )
   }
 

@@ -15,7 +15,7 @@ class App extends Component {
         {value: "ca-northeast", text:"Canada - East"},
         {value: "ca-northwest", text:"Canada - West"}
       ],
-      loading: false,
+      loading: true,
       selectedRegion: "us-northeast",
       selectedRegionData: "",
       selectedRegionDisplay: "US - Northeast"
@@ -37,7 +37,6 @@ class App extends Component {
   }
 
   fetchRegionalSuggestions = (region) => {
-    setTimeout(() => {this.setState({ loading: true })
       fetch(`https://floating-escarpment-37906.herokuapp.com/suggestions/${region}`)
       .then(data => data.json())
       .then((json) => {
@@ -45,9 +44,10 @@ class App extends Component {
           selectedRegionData: json,
           loading: false
         })
-      })},15000)
-
+      }
+    )
   }
+
 
 
   render() {
