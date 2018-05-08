@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Card, Header } from 'semantic-ui-react'
 import DestinationTile from './destinationTile'
-import DestinationLoader from './loader.js'
 import FunLoader from './funLoader.js'
 import ForecastChartModal from './forecastChartModal.js'
 

@@ -11,16 +11,14 @@ class FunLoader extends Component {
     }
     let counter = 0
     this.funMessage = setInterval(() => {
-      if (counter < 7){
-        let displayItem = loaderData[this.props.display][counter]
-        if (displayItem) {
-          this.setState({currentMessage: displayItem})
-        } else {
-          counter = 0
-          this.setState({currentMessage: loaderData[this.props.display][counter]})
-        }
-        counter++
+      let displayItem = loaderData[this.props.display][counter]
+      if (displayItem) {
+        this.setState({currentMessage: displayItem})
+      } else {
+        counter = 0
+        this.setState({currentMessage: loaderData[this.props.display][counter]})
       }
+      counter++
     }, 2000)
   }
 
