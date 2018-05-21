@@ -16,7 +16,7 @@ class DestinationTile extends Component {
         className='card-height'
         src={destination.photo_url}
         />
-        <Card.Meta textAlign="center">photo by {destination.photo_cred}</Card.Meta>
+        <Card.Meta textAlign="center"><a href={destination.photo_url} target="_blank">photo by {destination.photo_cred}</a></Card.Meta>
         <Card.Content>
         <Label as='a' color='black' ribbon>{this.props.ranking}</Label>
           <span className='title-text'>{destination.name}</span>
