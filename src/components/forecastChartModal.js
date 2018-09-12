@@ -8,18 +8,18 @@ const ForecastChartModal = ({destinations}) => {
       <Modal size={'small'} trigger={<Button basic size='tiny'>compare forecasts</Button>}>
         <Modal.Header>Find the Dreariness that Suits You Best</Modal.Header>
         <Modal.Content scrolling>
-        <Modal.Description>
-          <p className="paragraph-text">Destinations can gain up to thirty points each of the following forecast categories:</p>
-          <ul className="paragraph-text">
-            <li>precipitation: mist, drizzle, rain, thunderstorm, or snow </li>
-            <li>cool temps: below 50ºF</li>
-            <li>clouds: coverage over 50%</li>
-            <li>wind: speeds above 13 mph</li>
-          </ul>
-        </Modal.Description>
           <div>
             <Bar data={displayData(destinations)} width="625" height="250"/>
           </div>
+          <Modal.Description>
+            <p className="paragraph-text">Destinations can gain up to thirty points each of the following forecast categories:</p>
+            <ul className="paragraph-text">
+              <li>precipitation: mist, drizzle, rain, thunderstorm, or snow </li>
+              <li>cool temps: below 50ºF</li>
+              <li>clouds: coverage over 50%</li>
+              <li>wind: speeds above 13 mph</li>
+            </ul>
+          </Modal.Description>
         </Modal.Content>
       </Modal>
     )
